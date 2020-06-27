@@ -52,6 +52,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         super.viewWillAppear(animated)
         //disable camera button if camera source is not available eg. simulator
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        shareButton.isEnabled = false
         subscribeToKeyboardNotifications()
         subscribeToKeyboardHideNotifications()
     }
@@ -81,6 +82,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
             imagePickerView.image = image
             imagePickerView.contentMode = .center
             imagePickerView.contentMode = .scaleAspectFill
+            shareButton.isEnabled = true
         }
             dismiss(animated: true, completion: nil)
     }
@@ -163,6 +165,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
                     self.imagePickerView.image = nil
                     self.topText.text = "TOP"
                     self.bottomText.text = "BOTTOM"
+                    self.shareButton.isEnabled = false
                 }
         }
 
@@ -173,6 +176,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         topText.text = "TOP"
         bottomText.text = "BOTTOM"
         imagePickerView.image = nil
+        shareButton.isEnabled = false
         
     }
     

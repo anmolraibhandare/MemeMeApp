@@ -15,17 +15,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KXI-jl-3ou">
-                                <rect key="frame" x="0.0" y="33" width="414" height="829"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KXI-jl-3ou">
+                                <rect key="frame" x="0.0" y="34" width="414" height="828"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Hkr-tK-Oxt" userLabel="navigationBar">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="836" width="414" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" id="FDd-Wn-LSD">
+                                        <inset key="imageInsets" minX="50" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="largeContentSizeImageInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ikK-4s-AQH" userLabel="cameraButton">
-                                            <rect key="frame" x="20" y="5" width="227" height="44"/>
+                                            <rect key="frame" x="20" y="12" width="68" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <state key="normal" image="camera" catalog="system"/>
                                             <connections>
@@ -33,37 +35,36 @@
                                             </connections>
                                         </button>
                                     </barButtonItem>
-                                    <barButtonItem title="Album" width="164" id="U6d-fK-rLB">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="jM0-Bg-Fzk"/>
+                                    <barButtonItem title="Album" width="75" id="U6d-fK-rLB">
+                                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
                                         <connections>
                                             <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="B03-VY-bs8"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kgQ-IL-Qcq">
-                                <rect key="frame" x="20" y="158" width="374" height="34"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wva-ut-Nn4">
+                            <textField opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wva-ut-Nn4">
                                 <rect key="frame" x="20" y="725" width="374" height="34"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="JAp-DT-MDE"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="no"/>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7mo-Sf-mDg">
-                                <rect key="frame" x="0.0" y="33" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="34" width="414" height="44"/>
                                 <items>
-                                    <barButtonItem title="Share" image="square.and.arrow.up" catalog="system" width="73" id="Z9h-H6-2kC">
+                                    <barButtonItem title="Share" image="square.and.arrow.up" catalog="system" id="Z9h-H6-2kC">
                                         <connections>
                                             <action selector="shareAction:" destination="BYZ-38-t0r" id="wDx-zx-uSM"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Lfl-jU-Wc1"/>
                                     <barButtonItem title=" Cancel" style="plain" id="8aL-D2-wMR">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="f8w-pq-08v">
-                                            <rect key="frame" x="73" y="7" width="315" height="30"/>
+                                            <rect key="frame" x="346" y="7" width="48" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Cancel"/>
                                             <connections>
@@ -73,25 +74,28 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kgQ-IL-Qcq">
+                                <rect key="frame" x="205" y="97" width="4" height="18.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="kgQ-IL-Qcq" firstAttribute="top" secondItem="7mo-Sf-mDg" secondAttribute="bottom" constant="81" id="2T4-Es-Ayl"/>
-                            <constraint firstItem="7mo-Sf-mDg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3aZ-11-LXm"/>
-                            <constraint firstItem="Hkr-tK-Oxt" firstAttribute="trailing" secondItem="KXI-jl-3ou" secondAttribute="trailing" id="Css-wd-yGK"/>
-                            <constraint firstItem="Hkr-tK-Oxt" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Hhb-C2-FDa"/>
-                            <constraint firstItem="kgQ-IL-Qcq" firstAttribute="leading" secondItem="wva-ut-Nn4" secondAttribute="leading" id="JbX-en-d1f"/>
-                            <constraint firstItem="7mo-Sf-mDg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Kzj-Fl-dtV"/>
-                            <constraint firstItem="kgQ-IL-Qcq" firstAttribute="centerX" secondItem="7mo-Sf-mDg" secondAttribute="centerX" id="MFl-GB-dqK"/>
-                            <constraint firstItem="7mo-Sf-mDg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="33" id="RM8-cK-tS0"/>
-                            <constraint firstItem="KXI-jl-3ou" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="VmO-Z1-zqg"/>
-                            <constraint firstItem="KXI-jl-3ou" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Wyb-04-DJY"/>
-                            <constraint firstItem="KXI-jl-3ou" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="Y2l-hc-hQr"/>
-                            <constraint firstItem="Hkr-tK-Oxt" firstAttribute="leading" secondItem="KXI-jl-3ou" secondAttribute="leading" id="bl0-yg-1B0"/>
-                            <constraint firstItem="kgQ-IL-Qcq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fQg-7v-HLr"/>
-                            <constraint firstItem="Hkr-tK-Oxt" firstAttribute="top" secondItem="KXI-jl-3ou" secondAttribute="bottom" id="lXH-4S-o2O"/>
-                            <constraint firstItem="kgQ-IL-Qcq" firstAttribute="trailing" secondItem="wva-ut-Nn4" secondAttribute="trailing" id="ubA-SH-W9N"/>
-                            <constraint firstItem="Hkr-tK-Oxt" firstAttribute="top" secondItem="wva-ut-Nn4" secondAttribute="bottom" constant="54" id="whk-R6-yu7"/>
+                            <constraint firstItem="KXI-jl-3ou" firstAttribute="trailing" secondItem="7mo-Sf-mDg" secondAttribute="trailing" id="Azl-g2-xZH"/>
+                            <constraint firstItem="KXI-jl-3ou" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Bo3-ZL-hJU"/>
+                            <constraint firstItem="Hkr-tK-Oxt" firstAttribute="top" secondItem="KXI-jl-3ou" secondAttribute="bottom" constant="-26" id="Dzr-zo-rbu"/>
+                            <constraint firstItem="Hkr-tK-Oxt" firstAttribute="top" secondItem="wva-ut-Nn4" secondAttribute="bottom" constant="77" id="G0Z-l9-GME"/>
+                            <constraint firstItem="kgQ-IL-Qcq" firstAttribute="top" secondItem="7mo-Sf-mDg" secondAttribute="bottom" constant="19" id="IvQ-8n-1n5"/>
+                            <constraint firstItem="KXI-jl-3ou" firstAttribute="centerX" secondItem="wva-ut-Nn4" secondAttribute="centerX" id="WJE-x3-jqn"/>
+                            <constraint firstItem="KXI-jl-3ou" firstAttribute="centerX" secondItem="kgQ-IL-Qcq" secondAttribute="centerX" id="azc-Bk-bjU"/>
+                            <constraint firstItem="wva-ut-Nn4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="leR-fv-UEK"/>
+                            <constraint firstItem="KXI-jl-3ou" firstAttribute="leading" secondItem="Hkr-tK-Oxt" secondAttribute="leading" id="pe2-EY-ola"/>
+                            <constraint firstItem="KXI-jl-3ou" firstAttribute="top" secondItem="7mo-Sf-mDg" secondAttribute="top" id="qHG-YP-j4s"/>
+                            <constraint firstItem="KXI-jl-3ou" firstAttribute="trailing" secondItem="Hkr-tK-Oxt" secondAttribute="trailing" id="rIT-eM-W65"/>
+                            <constraint firstItem="KXI-jl-3ou" firstAttribute="leading" secondItem="7mo-Sf-mDg" secondAttribute="leading" id="rRW-jB-HiF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
