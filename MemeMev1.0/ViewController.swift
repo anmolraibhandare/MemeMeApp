@@ -31,22 +31,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        topText.delegate = self
-        bottomText.delegate = self
-        
-        topText.defaultTextAttributes = memeTextAttributes
-        bottomText.defaultTextAttributes = memeTextAttributes
-        
-        topText.text = topConstant
-        bottomText.text = bottomConstant
-        
-        topText.textAlignment = .center
-        bottomText.textAlignment = .center
-        
-        topText.contentMode = .scaleAspectFit
-        bottomText.contentMode = .scaleAspectFit
-        
-}
+        setupTextField(topText, topConstant)
+        setupTextField(bottomText, bottomConstant)
+    }
+    
+    func setupTextField(_ textField: UITextField, _ defaultText: String) {
+        textField.delegate = self
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = .center
+        textField.text = defaultText
+        textField.contentMode = .scaleAspectFit
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -62,18 +57,19 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         unsubscribeFromKeyboardNotifications()
     }
     
+    func pickFromSource(_ source: UIImagePickerController.SourceType) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = source
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
     @IBAction func pickAnImageFromAlbum(_ sender: Any) {
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.sourceType = .photoLibrary
-            present(imagePicker, animated: true, completion: nil)
+        pickFromSource(.photoLibrary)
     }
     
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        present(imagePicker, animated: true, completion: nil)
+        pickFromSource(.camera)
     }
     
     func imagePickerController(_ picker: UIImagePickerController,
@@ -160,21 +156,23 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         let memedImage: UIImage = generateMemedImage()
         let shareView = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         shareView.completionWithItemsHandler = { (_, completed, _, _) in
+            if (completed) {
                 self.save()
                 self.dismiss(animated: true) {
                     self.imagePickerView.image = nil
-                    self.topText.text = "TOP"
-                    self.bottomText.text = "BOTTOM"
+                    self.topText.text = self.topConstant
+                    self.bottomText.text = self.bottomConstant
                     self.shareButton.isEnabled = false
                 }
+            }
         }
 
         present(shareView, animated: true, completion: nil)
     }
 
     @IBAction func cancelMeme(_ sender: Any) {
-        topText.text = "TOP"
-        bottomText.text = "BOTTOM"
+        topText.text = topConstant
+        bottomText.text = bottomConstant
         imagePickerView.image = nil
         shareButton.isEnabled = false
         
