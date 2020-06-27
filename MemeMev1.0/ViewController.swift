@@ -50,6 +50,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //disable camera button if camera source is not available eg. simulator
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         subscribeToKeyboardNotifications()
         subscribeToKeyboardHideNotifications()
@@ -157,18 +158,22 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         let memedImage: UIImage = generateMemedImage()
         let shareView = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         shareView.completionWithItemsHandler = { (_, completed, _, _) in
-            if (completed) {
                 self.save()
-            }
+                self.dismiss(animated: true) {
+                    self.imagePickerView.image = nil
+                    self.topText.text = "TOP"
+                    self.bottomText.text = "BOTTOM"
+                }
         }
+
         present(shareView, animated: true, completion: nil)
     }
 
     @IBAction func cancelMeme(_ sender: Any) {
-//        shareButton.isEnabled = false
-        imagePickerView.image = nil
         topText.text = "TOP"
         bottomText.text = "BOTTOM"
+        imagePickerView.image = nil
+        
     }
     
 }
