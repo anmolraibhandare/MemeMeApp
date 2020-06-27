@@ -4,7 +4,7 @@
 <dict>
 	<key>NSCameraUsageDescription</key>
 	<string>MemeMe Would Like To Access Your Camera</string>
-	<key>NSPhotoLibraryUsageDescription</key>
+	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>MemeMe Would Like To Access Your Photo Library</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>

@@ -46,14 +46,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         topText.contentMode = .scaleAspectFit
         bottomText.contentMode = .scaleAspectFit
         
-    }
+}
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         subscribeToKeyboardNotifications()
         subscribeToKeyboardHideNotifications()
-        
-        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -151,7 +150,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
     
    func save() {
-//        let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+    _ = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())
    }
     
     @IBAction func shareAction(_ sender: Any) {
@@ -166,7 +165,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
 
     @IBAction func cancelMeme(_ sender: Any) {
-        shareButton.isEnabled = false
+//        shareButton.isEnabled = false
         imagePickerView.image = nil
         topText.text = "TOP"
         bottomText.text = "BOTTOM"

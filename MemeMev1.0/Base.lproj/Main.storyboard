@@ -67,12 +67,9 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Cancel"/>
                                             <connections>
-                                                <action selector="cancelButton:" destination="BYZ-38-t0r" eventType="valueChanged" id="2Xm-Fo-kJN"/>
+                                                <action selector="cancelMeme:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0QJ-B7-elb"/>
                                             </connections>
                                         </button>
-                                        <connections>
-                                            <action selector="cancelMeme:" destination="BYZ-38-t0r" id="l6c-Pt-wC4"/>
-                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
